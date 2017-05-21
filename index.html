@@ -1,1 +1,128 @@
-Test
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Lumins and Shades</title>
+		<meta name="description" content="Lumins and Shades is a 2D grid-based puzzle game about turning on lights, making memories, and not killing your friends.">
+
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="Lumins and Shades">
+		<meta property="og:image" content="images/lumin.png">
+		<meta property="og:description" content="Lumins and Shades is a 2D grid-based puzzle game about turning on lights, making memories, and not killing your friends.">
+
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" content="Lumins and Shades">
+		<meta name="twitter:image" content="images/lumin.png">
+		<meta name="twitter:description" content="Lumins and Shades is a 2D grid-based puzzle game about turning on lights, making memories, and not killing your friends.">
+
+		<link rel="stylesheet" type="text/css" href="las.css">
+		<link rel="icon" href="images/lumin_about.png">
+	</head>
+	<body>
+		<h1 id="title"><img src="images/title.png" alt="Lumins and Shades"></img></h1>
+		<div id="page">
+			<div class="header_container"><a name="about"></a>
+				<img class="contained_image" src="images/lumin_about.png" alt=""></img>
+				<h2 class="section_header" style="">About</h2>
+				<img class="contained_image" src="images/shade_about.png" alt=""></img>
+			</div>
+			<p>Lumins and Shades is a 2D grid-based puzzle game about turning on lights, making memories, and not killing your friends. In this game you control Lumins, who live in light, and Shades, who live in darkness. They have a common goal of restoring the light that has been lost from the world. To help them, you will guide them around the world to discover puzzles in which they interact with various kinds of switches, each other, and even the light and darkness itself. Solving these puzzles returns some light to the world, revealing more puzzles to tackle.</p>
+			<div id="about_images0">
+				<img class="contained_image" src="images/about11.png" alt=""></img>
+				<img class="contained_image" src="images/about12.png" alt=""></img>
+				<img class="contained_image" src="images/about13.png" alt=""></img>
+			</div>
+			<p>The game features:</p>
+			<ul>
+				<li>Over a dozen areas to explore</li>
+				<li>Well over 200 puzzles to solve</li>
+				<li>Slight random variation in most puzzles to keep them fresh</li>
+				<li>Available hard mode in which undos are not allowed</li>
+				<li>More than 3000 different looking Lumins and Shades</li>
+				<li>Plenty of goofy dialog and banter</li>
+			</ul>
+			<div id="about_images2">
+				<img class="contained_image" src="images/about05.png" alt=""></img>
+				<img class="contained_image" src="images/about08.png" alt=""></img>
+			</div>
+			<div id="about_images3">
+				<img class="contained_image" src="images/about06.png" alt=""></img>
+				<img class="contained_image" src="images/about07.png" alt=""></img>
+			</div>
+			<div id="about_images4">
+				<img class="contained_image" src="images/about10.png" alt=""></img>
+				<img class="contained_image" src="images/about09.png" alt=""></img>
+			</div>
+			<p>As a note on the puzzle design mentality: this is a game which aims to teach the player its mechanics though design alone, rather than telling them to the player directly. This is accomplished by introducing new concepts in the simplest possible puzzle that makes use of that concept, slowly building it into more complex puzzles, and weaving it in with previous ideas. That being said, the rules are actually fairly straightforward with a few twists as you go, so the puzzles end up fully fleshing out these ideas and create some serious challenges. Thus, you can expect to enjoy the puzzle solving and the learning process as well.</p>
+			<div id="about_images1">
+				<img class="contained_image" src="images/about01.png" alt=""></img>
+				<img class="contained_image" src="images/about02.png" alt=""></img>
+				<img class="contained_image" src="images/about03.png" alt=""></img>
+				<img class="contained_image" src="images/about04.png" alt=""></img>
+			</div>
+			<p>Lumins and Shades is a PC game that currently runs on Windows and is planned to also run on MAC and Linux OSs by its release, with eventual ports to mobile platforms as well. The game can be played using mouse, keyboard, game controller, or any combination of these you like. Support for touch screens is also planned. You can play on anything from fullscreen down to a tiny window, the UI is customizable, and, despite the puzzles' apparent reliance on color, the game is fully playable by anyone with color perception difficulties, since all switches and lights are labeled with their color.</p>
+
+			<div class="header_container"><a name="development"></a>
+				<img class="contained_image" src="images/lumin_dev.png" alt=""></img>
+				<h2 class="section_header" style="">Development</h2>
+				<img class="contained_image" src="images/shade_dev.png" alt=""></img>
+			</div>
+			<p>Lumins and Shades is being developed by a team of one. If you know me from the internet, you probably know me by TheOnlyOne or some variant thereon (see contact information below.) If you know me from anywhere else, you probably call me Tom. I have a Masters in Computer Science, and I wrote my undergraduate thesis on procedural generation of a Sokoban variant. I have a strong musical background and a very artistic family. I have been interested in game design and creation for as long as I can remember. So of course I'm going to make a game.</p>
+			<p>I started development of Lumins and Shades around August 2016, having come up with the idea about a year earlier. I hope to have it finished by the end of this (2017) summer. You can see a history of the game's development on its <a href="https://twitter.com/LuminsAndShades">official Twitter account</a>. You should definitely check this out to see a ton more features and media for the game (especially videos/gifs.)</p>
+			<p>The ideas for this game didn't come out of nowhere. Some of the core mechanics, such as the selection and commanding of multiple characters and various switch types, are based on a lovely old PC game called Gruntz (Monolith Productions, 1999), which was one of my favorite games from my childhood and is easily still one of my favorites. I would strongly recommend playing this one for yourself, but the game is apparently very hard to come by nowadays, and modern systems have trouble running it. The puzzle design mentality is heavily influenced by more recent games such as The Witness (Thekla, Inc., 2016) and Stephen's Sausage Roll (Increpare Games, 2016), which are both games that tell the player absolutely nothing about how the puzzles work.</p>
+			<p>For the curious: Lumins and Shades is not created in any particular engine, but rather is written in C using the library SDL. The reason for this decision is the high portability of both the language and the library; I want the game to be able to reach as many platforms as is reasonable while causing myself as little pain as possible. I have, perhaps, written a bit more from scratch than was entirely necessary (font displaying, some special file reading/writing, and others,) but I've fortunately found in most of these cases the extra power gained from having full control over these mechanisms ended up being beneficial.</p>
+			<p><a name="progress"></a>Below is a rough (under)estimation of my progress in the game's development.</p>
+			<div class="progress_container">
+				<div class="progress_name">Program:</div>
+				<div class="progress_out">
+					<div id="program_progress" class="progress_in" style="width:86.22%;">86.22%</div>
+				</div>
+			</div>
+			<div class="progress_container">
+				<div class="progress_name">Puzzles:</div>
+				<div class="progress_out">
+					<div id="puzzle_progress" class="progress_in" style="width:66.37%;">66.37%</div>
+				</div>
+			</div>
+			<div class="progress_container">
+				<div class="progress_name">Visuals:</div>
+				<div class="progress_out">
+					<div id="visuals_progress" class="progress_in" style="width:70.09%;">70.09%</div>
+				</div>
+			</div>
+			<div class="progress_container">
+				<div class="progress_name">Scenes:</div>
+				<div class="progress_out">
+					<div id="scene_progress" class="progress_in" style="width:26.57%;">26.57%</div>
+				</div>
+			</div>
+			<div class="progress_container">
+				<div class="progress_name">Sound:</div>
+				<div class="progress_out">
+					<div id="sound_progress" class="progress_in" style="width:3.79%;">:(</div>
+				</div>
+			</div>
+			<div class="progress_container">
+				<div class="progress_name">UI/Controls:</div>
+				<div class="progress_out">
+					<div id="control_progress" class="progress_in" style="width:83.32%;">83.32%</div>
+				</div>
+			</div>
+
+			<div class="header_container"><a name="contact"></a>
+				<img class="contained_image" src="images/lumin_contact.png" alt=""></img>
+				<h2 class="section_header" style="">Contact</h2>
+				<img class="contained_image" src="images/shade_contact.png" alt=""></img>
+			</div>
+			<p>If you have any questions about the game, find something wrong with the site, or just want to know what my favorite Lumin is on a given day, feel free to contact me. Twitter and Discord are probably your best bet; I rarely read twitch messages, but I am certainly responsive to chat if I happen to be live.</p>
+			<ul>
+				<li>Twitter: <a href="https://twitter.com/Modest_ralts">https://twitter.com/Modest_ralts</a> or <a href="https://twitter.com/LuminsAndShades">https://twitter.com/LuminsAndShades</a></li>
+				<li>Discord ID: TheOnlyOne#9807</li>
+				<li>Twitch TV: <a href="https://www.twitch.tv/theonly0">https://www.twitch.tv/theonly0</a>
+				<li>E-mail: <a href="mailto:luminsandshades@gmail.com">luminsandshades@gmail.com</a>
+			</ul>
+		</div>
+		<div id="footer">
+			Copyright &#169; TheOnlyOne 2017
+		</div>
+	</body>
+</html>

@@ -1,0 +1,138 @@
+body {
+  background-color: #070911;
+  color: #F6F6F6;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a:link {
+  color: #87CDF8;
+  text-decoration: none;
+}
+a:visited {
+  color: #AE21EB;
+  text-decoration: none;
+}
+
+#title {
+	text-align: center;
+	margin: auto;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	display: block;
+}
+
+#page {
+  margin: auto;
+  background-color: #303030;
+  max-width: 45em;
+  padding: .25em 1.25em 1em 1.25em;
+  box-shadow: 8px 8px #000000;
+}
+
+#page > p {
+	text-align: justify;
+}
+
+#footer {
+	text-align: center;
+	margin-top: 1em;
+	margin-bottom: 1px;
+	font-size: 0.75em;
+}
+
+.header_container {
+	text-align: center;
+	height: 3em;
+	padding: 1em;
+}
+
+.contained_image {
+	height: 100%;
+	margin-left: .3em;
+	margin-right: .3em;
+}
+
+.section_header {
+	display:inline;
+	font-weight: normal;
+	text-decoration: underline;
+	padding-left: 20px;
+	padding-right: 20px;
+	position: relative;
+	bottom: .75em;
+}
+
+#about_images0 {
+	text-align: center;
+	height: 10em;
+}
+
+#about_images1 {
+	text-align: center;
+	height: 10em;
+}
+
+#about_images2 {
+	text-align: center;
+	height: 10em;
+	margin-bottom: 1.2em; 
+}
+
+#about_images3 {
+	text-align: center;
+	height: 10em;
+	margin-bottom: 1.2em; 
+}
+
+#about_images4 {
+	text-align: center;
+	height: 14em;
+}
+
+.progress_container {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.progress_name {
+  float: left;
+  text-align: right;
+  width: 85px;
+  padding: 3px;
+}
+
+.progress_out {
+  background-color: black;
+  margin-left: 90px;
+  padding: 3px;
+}
+
+.progress_in {
+   text-align: center;
+   width: 100%;
+   height: 20px;
+}
+
+#program_progress {
+   background-color: #770000;
+}
+
+#puzzle_progress {
+   background-color: #007700;
+}
+
+#visuals_progress {
+   background-color: #000077;
+}
+
+#scene_progress {
+   background-color: #666600;
+}
+
+#sound_progress {
+   background-color: #006666;
+}
+
+#control_progress {
+   background-color: #660066;
+}

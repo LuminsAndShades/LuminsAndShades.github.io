@@ -33,6 +33,11 @@ a:visited {
 	text-align: justify;
 }
 
+#trailer {
+  margin: auto;
+  display:block;
+}
+
 #footer {
 	text-align: center;
 	margin-top: 1em;

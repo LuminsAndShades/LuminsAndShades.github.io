@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Character Creator</title>
+    <meta name="description" content="Lumins and Shades Character Creator">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Lumins and Shades">
+    <meta property="og:image" content="http://www.luminsandshades.com/images/lumin.png">
+    <meta property="og:description" content="Lumins and Shades Character Creator">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Lumins and Shades">
+    <meta name="twitter:image" content="http://www.luminsandshades.com/images/lumin.png">
+    <meta name="twitter:description" content="Lumins and Shades Character Creator">
+
+    <link rel="stylesheet" type="text/css" href="las.css">
+    <link rel="icon" href="images/lumin_release.png">
+    <script src="CharacterCreator.js"></script>
+    <style>
+      #content {
+        margin: auto;
+        display: flex;
+        max-width: 76em;
+      }
+      #content > * {
+        display: initial;
+      }
+      #preview {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #display-bg {
+        border-top: 1px solid #303030;
+        border-left: 1px solid #303030;
+        padding: 0px;
+        background-image: linear-gradient(to left, #303030 1px, transparent 1px), linear-gradient(to top, #303030 1px, transparent 1px);
+      }
+      .sub-fieldset {
+        border-color: #555555;
+      }
+      .sub-fieldset:not(:last-child) {
+        margin-bottom: .5em;
+      }
+      .sub-fieldset > label:not(:last-child),
+      .sub-fieldset > div:not(:last-child) {
+        margin-right: .5em;
+      }
+      .radio-stack {
+        display: inline-block;
+      }
+      .radio-stack > div:not(:last-child) {
+        margin-bottom: .3em;
+      }
+    </style>
+  </head>
+  <body onload="startup()">
+    <div id=content>
+      <div id=preview>
+        <div id="display-bg" style="width: 512px; height: 512px; background-size: 32px 32px; background-color: rgb(255, 196, 215);">
+          <canvas id="display" width="16" height="16" style="width: 512px; height: 512px; image-rendering: -moz-crisp-edges;">
+            The generated character appears here.
+          </canvas>
+        </div>
+      </div>
+
+      <div id="options">
+        <fieldset class="main-fieldset" onchange="optionChanged();">
+          <legend>Body</legend>
+          <fieldset class="sub-fieldset">
+            <legend>Character</legend>
+            <input type="radio" id="character_lumin" name="character" value="lumin" checked>
+            <label for="character_lumin">Lumin</label>
+
+            <input type="radio" id="character_shade" name="character" value="shade">
+            <label for="character_shade">Shade</label>
+          </fieldset>
+          <fieldset class="sub-fieldset">
+            <legend>Direction</legend>
+            <input type="radio" id="direction_left" name="direction" value="left">
+            <label for="direction_left">Left</label>
+
+            <input type="radio" id="direction_right" name="direction" value="right" checked>
+            <label for="direction_right">Right</label>
+          </fieldset>
+          <fieldset class="sub-fieldset">
+            <legend>Number</legend>
+            <input type="radio" id="number_0" name="number" value="0" checked>
+            <label for="number_0">0</label>
+
+            <input type="radio" id="number_1" name="number" value="1">
+            <label for="number_1">1</label>
+
+            <input type="radio" id="number_2" name="number" value="2">
+            <label for="number_2">2</label>
+
+            <input type="radio" id="number_3" name="number" value="3">
+            <label for="number_3">3</label>
+          </fieldset>
+        </fieldset>
+
+        <fieldset class="main-fieldset" onchange="optionChanged();">
+          <legend>Eyes</legend>
+          <fieldset class="sub-fieldset">
+            <legend>Glasses</legend>
+            <input type="radio" id="eyes_normal" name="eyes" value="normal" checked>
+            <label for="eyes_normal">No</label>
+
+            <input type="radio" id="eyes_shades" name="eyes" value="shades">
+            <label for="eyes_shades">Yes</label>
+          </fieldset>
+          <fieldset id="eyeColor" class="sub-fieldset">
+            <legend>Color</legend>
+            <input type="radio" id="eyeColor_none" name="eyeColor" value="none" checked>
+            <label for="eyeColor_none">None</label>
+
+            <input type="radio" id="eyeColor_red" name="eyeColor" value="red">
+            <label for="eyeColor_red">Red</label>
+
+            <input type="radio" id="eyeColor_green" name="eyeColor" value="green">
+            <label for="eyeColor_green">Green</label>
+
+            <input type="radio" id="eyeColor_blue" name="eyeColor" value="blue">
+            <label for="eyeColor_blue">Blue</label>
+          </fieldset>
+        </fieldset>
+
+        <fieldset class="main-fieldset" onchange="optionChanged();">
+          <legend>Hair</legend>
+          <fieldset class="sub-fieldset">
+            <legend>Style</legend>
+            <div class="radio-stack">
+              <div>
+                <input type="radio" id="hair_10" name="hair" value="10" checked>
+                <label for="hair_10">Lumin A</label>
+              </div>
+              <div>
+                <input type="radio" id="hair_11" name="hair" value="11">
+                <label for="hair_11">Lumin B</label>
+              </div>
+              <div>
+                <input type="radio" id="hair_12" name="hair" value="12">
+                <label for="hair_12">Lumin C</label>
+              </div>
+              <div>
+                <input type="radio" id="hair_13" name="hair" value="13">
+                <label for="hair_13">Lumin D</label>
+              </div>
+              <div>
+                <input type="radio" id="hair_14" name="hair" value="14">
+                <label for="hair_14">Lumin E</label>
+              </div>
+            </div>
+            <div class="radio-stack">
+              <div>
+                <input type="radio" id="hair_15" name="hair" value="15">
+                <label for="hair_15">Lumin F</label>
+              </div>
+              <div>
+                <input type="radio" id="hair_16" name="hair" value="16">
+                <label for="hair_16">Lumin G</label>
+              </div>
+              <div>
+                <input type="radio" id="hair_17" name="hair" value="17">
+                <label for="hair_17">Lumin H</label>
+              </div>
+              <div>
+                <input type="radio" id="hair_18" name="hair" value="18">
+                <label for="hair_18">Lumin I</label>
+              </div>
+              <div>
+                <input type="radio" id="hair_19" name="hair" value="19">
+                <label for="hair_19">Lumin J</label>
+              </div>
+            </div>
+            <div style="display: inline-block" class="radio-stack">
+              <div>
+                <input type="radio" id="hair_0" name="hair" value="0">
+                <label for="hair_0">Shade A</label>
+              </div>
+              <div>
+                <input type="radio" id="hair_1" name="hair" value="1">
+                <label for="hair_1">Shade B</label>
+              </div>
+              <div>
+                <input type="radio" id="hair_2" name="hair" value="2">
+                <label for="hair_2">Shade C</label>
+              </div>
+              <div>
+                <input type="radio" id="hair_3" name="hair" value="3">
+                <label for="hair_3">Shade D</label>
+              </div>
+              <div>
+                <input type="radio" id="hair_4" name="hair" value="4">
+                <label for="hair_4">Shade E</label>
+              </div>
+            </div>
+            <div class="radio-stack">
+              <div>
+                <input type="radio" id="hair_5" name="hair" value="5">
+                <label for="hair_5">Shade F</label>
+              </div>
+              <div>
+                <input type="radio" id="hair_6" name="hair" value="6">
+                <label for="hair_6">Shade G</label>
+              </div>
+              <div>
+                <input type="radio" id="hair_7" name="hair" value="7">
+                <label for="hair_7">Shade H</label>
+              </div>
+              <div>
+                <input type="radio" id="hair_8" name="hair" value="8">
+                <label for="hair_8">Shade I</label>
+              </div>
+              <div>
+                <input type="radio" id="hair_9" name="hair" value="9">
+                <label for="hair_9">Shade J</label>
+              </div>
+            </div>
+          </fieldset>
+          <label for="hairHue">Hue (0-359): </label><input type="text" id="hairHue" size=3 style="margin-right: 1em;">
+          <label for="greyHair">Grey: </label><input type="checkbox" id="greyHair">
+        </fieldset>
+
+        <fieldset class="main-fieldset" onchange="optionChanged();">
+          <legend>Accessory</legend>
+          <fieldset id="accessory" class="sub-fieldset">
+            <legend>Item</legend>
+            <div class="radio-stack">
+              <div>
+                <input type="radio" id="accessory_none" name="accessory" value="none" checked>
+                <label for="accessory_none">None</label>
+              </div>
+              <div>
+                <input type="radio" id="accessory_flower" name="accessory" value="flower">
+                <label for="accessory_flower">Flower</label>
+              </div>
+            </div>
+            <div class="radio-stack">
+              <div>
+                <input type="radio" id="accessory_hairclip" name="accessory" value="hairclip">
+                <label for="accessory_hairclip">Hairclip</label>
+              </div>
+              <div>
+                <input type="radio" id="accessory_bow" name="accessory" value="bow">
+                <label for="accessory_bow">Bow</label>
+              </div>
+            </div>
+            <div class="radio-stack">
+              <div>
+                <input type="radio" id="accessory_headband" name="accessory" value="headband">
+                <label for="accessory_headband">Headband</label>
+              </div>
+              <div>
+                <input type="radio" id="accessory_hat" name="accessory" value="hat">
+                <label for="accessory_hat">Hat</label>
+              </div>
+            </div>
+          </fieldset>
+          <label for="accessoryHue">Hue (0-359): </label><input type="text" id="accessoryHue" size=3 style="margin-right: 1em;">
+          <div style="display: inline-block">
+            <fieldset id="flowerColor" class="sub-fieldset">
+              <legend>Flower Color</legend>
+              <input type="radio" id="flowerColor_white" name="flowerColor" value="white" checked>
+              <label for="flowerColor_white">White</label>
+
+              <input type="radio" id="flowerColor_black" name="flowerColor" value="black">
+              <label for="flowerColor_black">Black</label>
+            </fieldset>
+          </div>
+        </fieldset>
+
+        <fieldset class="main-fieldset" onchange="optionChanged();">
+          <legend>Image</legend>
+          <div>
+            <div style="margin-bottom: 1em;">
+              <label for="background">Background Color: </label><input type="text" id="background" size=6 style="margin-right: 1em;">
+              <label for="transparentBackground">Transparent: </label><input type="checkbox" id="transparentBackground">
+            </div>
+            <div style="margin-bottom: .5em;">
+              <label for="scale">Scale: </label><input type="number" step="1" id="scale" min="1" max="128" size=6 style="margin-right: 1em;">
+              <label for="margin">Margin (applied after scale): </label><input type="number" step="1" id="margin" min="0" max="1024" size=6 style="margin-right: 1em;">
+            </div>
+            <div>
+              <label>Size: </label><label id="size">16 x 16</label>
+              <div style="text-align: right; display: block;">
+                <button type="button" onclick="saveImage();">Save Image</button>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+    <div id="footer">
+      <p>Copyright &#169; TheOnlyOne 2017-2022</p>
+      <a href=".">Back to homepage</a>
+    </div>
+  </body>
+</html>

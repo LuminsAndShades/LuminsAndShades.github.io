@@ -9,6 +9,12 @@ const NUMBER_COLOR = "#929292";
 
 const DEFAULT_BACKGROUND = "#FFAEC9";
 
+if (OffscreenCanvas === undefined) {
+  function OffscreenCanvas(w, h) {
+    return document.createElement('canvas');
+  }
+}
+
 const colorCanvas = new OffscreenCanvas(TILE_W, TILE_H);
 const colorContext = colorCanvas.getContext("2d");
 

@@ -11,7 +11,10 @@ const DEFAULT_BACKGROUND = "#FFAEC9";
 
 if (OffscreenCanvas === undefined) {
   function OffscreenCanvas(w, h) {
-    return document.createElement('canvas');
+    const result = document.createElement('canvas');
+    result.width = w;
+    result.height = h;
+    return result;
   }
 }
 

@@ -32,6 +32,12 @@
         justify-content: center;
         align-items: center;
       }
+      #display {
+        width: 512px;
+        height: 512px;
+        image-rendering: pixelated;
+        image-rendering: -moz-crisp-edges;
+      }
       #display-bg {
         border-top: 1px solid #303030;
         border-left: 1px solid #303030;
@@ -60,7 +66,7 @@
     <div id=content>
       <div id=preview>
         <div id="display-bg" style="width: 512px; height: 512px; background-size: 32px 32px; background-color: rgb(255, 196, 215);">
-          <canvas id="display" width="16" height="16" style="width: 512px; height: 512px; image-rendering: -moz-crisp-edges;">
+          <canvas id="display" width="16" height="16">
             The generated character appears here.
           </canvas>
         </div>

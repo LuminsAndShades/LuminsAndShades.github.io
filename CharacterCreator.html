@@ -31,6 +31,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
       }
       #display {
         width: 512px;
@@ -69,6 +70,9 @@
           <canvas id="display" width="16" height="16">
             The generated character appears here.
           </canvas>
+        </div>
+        <div>
+          <button type="button" onclick="randomCharacter();" style="margin-top: .5em; font-size: 1.5em;">RANDOM</button>
         </div>
       </div>
 

@@ -479,7 +479,78 @@ function saveImage() {
   link.delete;
 }
 
+function randomInt(max) {
+   return Math.floor(Math.random() * max);
+}
+
+function chance(max) {
+  return randomInt(max) === 0;
+}
+
+function randomCharacter() {
+  charOptions.character = chance(2) ? "lumin" : "shade";
+  charOptions.direction = chance(2) ? "right" : "left";
+  if (chance(10)) {
+    charOptions.number = String(randomInt(3) + 1);
+  }
+  else {
+    charOptions.number = "0";
+  }
+  charOptions.eyes = chance(12) ? "shades" : "normal";
+  if (chance(5)) {
+    charOptions.eyeColor = "none";
+  }
+  else {
+    switch (randomInt(3)) {
+      case 0: charOptions.eyeColor = "red"; break;
+      case 1: charOptions.eyeColor = "green"; break;
+      case 2: charOptions.eyeColor = "blue"; break;
+    }
+  }
+  let hair = randomInt(10);
+  let hairColor = randomInt(360);
+  charOptions.hairHue = String(hairColor);
+  charOptions.accessoryHue = String((hairColor + 90 + randomInt(180)) % 360);
+  if (charOptions.character === "shade") {
+    charOptions.greyHair = chance(6);
+    charOptions.hair = String(randomInt(10));
+    if (chance(8)) {
+      charOptions.accessory = chance(2) ? "headband" : "hat";
+    }
+    else {
+      charOptions.accessory = "none";
+    }
+  }
+  else {
+    charOptions.hair = `1${randomInt(10)}`;
+    charOptions.greyHair = false;
+    if (!new Set(["15", "16", "17", "18", "19"]).has(charOptions.hair)) {
+      if (chance(7)) {
+        switch (randomInt(3)) {
+          case 0:
+            charOptions.accessory = "flower";
+            charOptions.flowerColor = chance(10) ? "black" : "white";
+            break;
+          case 1:
+            charOptions.accessory = "hairclip";
+            break;
+          case 2:
+            charOptions.accessory = "bow";
+            break;
+        }
+      }
+      else {
+        charOptions.accessory = "none";
+      }
+    }
+  }
+
+  drawCharacter(charOptions);
+  pushBackOptions(charOptions);
+}
+
 function startup() {
+  randomCharacter();
   drawCharacter(charOptions);
   pushBackOptions(charOptions);
 }

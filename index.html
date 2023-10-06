@@ -16,6 +16,38 @@
 
 		<link rel="stylesheet" type="text/css" href="las.css">
 		<link rel="icon" href="images/lumin_release.png">
+
+		<script>
+			const mailtoPrefix = "mailto:";
+			const magic = "magic";
+			function showContacts() {
+				const links = document.getElementsByClassName("contact_link");
+				for (let i = 0; i < links.length; i++) {
+					const link = links.item(i);
+					const contact_data = JSON.parse(link.dataset.contact);
+					let contact = "";
+					for(let i = 0; i < contact_data.length; i++) {
+						contact += String.fromCharCode(contact_data[i] ^ magic.charCodeAt(i % magic.length)); //fun
+					};
+					link.href = contact;
+					if (contact.startsWith(mailtoPrefix)) {
+						contact = contact.slice(mailtoPrefix.length);
+					}
+					link.innerHTML = contact;
+				}
+				const button = document.getElementById("contact_button");
+				const contactList = document.getElementById("contact_list");
+				contactList.style.display = "";
+				button.style.display = "none";
+			}
+			function encodeLink(link) {
+				let result = [];
+				for(let i = 0; i < link.length; i++) {
+					result.push(link.charCodeAt(i) ^ magic.charCodeAt(i % magic.length));
+				};
+				return JSON.stringify(result);
+			}
+		</script>
 	</head>
 	<body>
 		<h1 id="title"><img id="title_image" src="images/title.png" alt="Lumins and Shades"></img></h1>
@@ -25,78 +57,109 @@
 				<h2 class="section_header" style="">Release Information</h2>
 				<img class="contained_image" src="images/shade_release.png" alt=""></img>
 			</div>
-			<p><strong style="color:#FE9EFE;">Note: Lumins and Shades has undergone some quite significant changes since the demo was posted! The general ideas about the game are still true, but many details have changed. This includes the graphics and music used in the game, which are being greatly improved!</strong></p>
-			<p>A demo for the game has been released on itch.io! <a href="https://theonly0.itch.io/lumins-and-shades-demo">Download the demo!</a></p>
-			<p>If you've played the demo, and want to help improve the game, you can leave some feedback with <a href="https://goo.gl/forms/b8VYc9vXL4ftFLCw1">this form</a>.</p>
-			<p>Lumins and Shades has been Greenlit! Thank you all for making this real!</p>
-			<p>You can still see the game's Greenlight page by following these links: <a href="http://steamcommunity.com/sharedfiles/filedetails/?id=934237989">Open Greenlight in your browser</a> or <a href="steam://url/CommunityFilePage/934237989">Open Greenlight in the Steam desktop client</a></p>
+			<p>Lumins and Shades will release on Steam on <b>October 27, 2023</b>! You can wishlist it here:</p>
+			<p style="text-align: center;">Open in <a href="https://store.steampowered.com/app/653020/Lumins_and_Shades/" target="_blank">Browser</a> or <a href="steam://advertise/653020">Steam Desktop Client</a></p>
+			<p>It will also release on <a href="https://itch.io/" target="_blank">itch.io</a>.</p>
+
+
 			<div class="header_container"><a name="about"></a>
 				<img class="contained_image" src="images/lumin_about.png" alt=""></img>
 				<h2 class="section_header" style="">About</h2>
 				<img class="contained_image" src="images/shade_about.png" alt=""></img>
 			</div>
 			<iframe id="trailer" width="640" height="360"
-				src="https://www.youtube.com/embed/6SA4Wckgmp4">
+				src="https://www.youtube.com/embed/tDQ7-eEqUhM">
 			</iframe>
-			<p>Lumins and Shades is a 2D grid-based puzzle game about turning on lights, making memories, and not killing your friends. In this game you control Lumins, who live in light, and Shades, who live in darkness. They have a common goal of restoring the light that has been lost from the world. To help them, you will guide them around the world to discover puzzles in which they interact with various kinds of switches, each other, and even the light and darkness itself. Solving these puzzles returns some light to the world, revealing more puzzles to tackle.</p>
+			<p>
+				Lumins and Shades is a cute 2D grid-based puzzle game about turning on lights and making memories.
+				Work together with Lumins, who live in light, and Shades, who live in darkness, to bring light to the world.
+			</p>
 			<div id="about_images0">
-				<img class="contained_image" src="images/about11.png" alt=""></img>
-				<img class="contained_image" src="images/about12.png" alt=""></img>
-				<img class="contained_image" src="images/about13.png" alt=""></img>
+				<img class="contained_image" src="images/About_01_Shade.png" alt="A puzzle in a gray-tiled area featuring colored toggle switches, some lit colored light bulbs, and a single Shade standing outside the light"></img>
+				<img class="contained_image" src="images/About_03_Both.png" alt="A puzzle in a forest area featuring colored toggle switches, some lit colored light bulbs, a Lumin standing in the light, and a Shade standing outside of it"></img>
+				<img class="contained_image" src="images/About_02_Lumin.png" alt="A puzzle in a gray-tiled area featuring colored toggle switches, some lit colored light bulbs, and a single Lumin standing in the light"></img>
 			</div>
-			<p>The game features:</p>
-			<ul>
-				<li>Deep connections between individual puzzles and the overall game world</li>
-				<li>Puzzles with multiple solutions that have different effects</li>
-				<li>A dozen areas to explore</li>
-				<li>Over 200 puzzles to solve</li>
-				<li>More than 5000 different looking Lumins and Shades</li>
-			</ul>
+			<p>
+				Guide them to discover and solve puzzles, in which they interact with various kinds of light switches, each other, and even the light and darkness itself.
+				Puzzles start simple but eventually become very complex, as different solutions have effects on the world and other puzzles.
+			</p>
+			<div id="about_images1">
+				<img class="contained_image" src="images/About_04_Overworld.png" alt=""></img>
+			</div>
+			<p>Lumins and Shades is the kind of puzzle game that does not directly spell out its mechanics, but instead allows the player to experiment and discover them on their own.</p>
+			<p>The game is fairly long, containing around 150 puzzles (depending on how you count them) across 11 areas, and a handful of deeper challenges for those who seek them out.</p>
 			<div id="about_images2">
-				<img class="contained_image" src="images/about05.png" alt=""></img>
-				<img class="contained_image" src="images/about08.png" alt=""></img>
+				<img class="contained_image" src="images/About_05_Waterway.png" alt="A puzzle in a gray-tiled area with water"></img>
+				<img class="contained_image" src="images/About_06_Mine.png" alt="A puzzle in a mine"></img>
 			</div>
 			<div id="about_images3">
-				<img class="contained_image" src="images/about06.png" alt=""></img>
-				<img class="contained_image" src="images/about07.png" alt=""></img>
+				<img class="contained_image" src="images/About_07_Desert.png" alt="A puzzle in a desert"></img>
+				<img class="contained_image" src="images/About_08_Tundra.png" alt="A puzzle in a tundra"></img>
 			</div>
 			<div id="about_images4">
-				<img class="contained_image" src="images/about10.png" alt=""></img>
-				<img class="contained_image" src="images/about09.png" alt=""></img>
+				<img class="contained_image" src="images/About_09_Tunnel.png" alt="A puzzle in an icy tunnel"></img>
+				<img class="contained_image" src="images/About_10_Orchard.png" alt="A puzzle in a wooded area with dead trees and orange leaves"></img>
 			</div>
-			<p>As a note on the puzzle design mentality: this is a game which aims to teach the player its mechanics though design alone, rather than telling them to the player directly. This is accomplished by introducing new concepts in the simplest possible puzzle that makes use of that concept, slowly building it into more complex puzzles, and weaving it in with previous ideas. That being said, the rules are actually fairly straightforward with a few twists as you go, so the puzzles end up fully fleshing out these ideas and create some serious challenges. Thus, you can expect to enjoy the puzzle solving and the learning process as well.</p>
-			<div id="about_images1">
-				<img class="contained_image" src="images/about01.png" alt=""></img>
-				<img class="contained_image" src="images/about02.png" alt=""></img>
-				<img class="contained_image" src="images/about03.png" alt=""></img>
-				<img class="contained_image" src="images/about04.png" alt=""></img>
+			<div id="about_images5">
+				<img class="contained_image" src="images/About_11_Pyramid.png" alt="A puzzle in an area with a sandy brick ground"></img>
+				<img class="contained_image" src="images/About_12_Graveyard.png" alt="A puzzle in a graveyard"></img>
 			</div>
-			<p>Lumins and Shades is a PC game that currently runs on Windows and is planned to also run on MAC and Linux OSs by its release, with eventual ports to mobile platforms as well. The game can be played using mouse, keyboard, game controller, or any combination of these you like. Support for touch screens is also planned. You can play on anything from fullscreen down to a tiny window, the UI is customizable, and, despite the puzzles' apparent reliance on color, the game is fully playable by anyone with color perception difficulties, since all switches and lights are labeled with their color.</p>
+			<h4>Controls and Platform:</h4>
+			<p>Lumins and Shades can be played using mouse, keyboard, game controller, or any combination of these you like. All controls are remappable.</p>
+			<p>The game runs on WIndows. While no longer currently planned, if the game does well enough, other platforms are not out of the question.</p>
+			<h4>Color Concerns:</h4>
+			<p>
+				Despite the puzzles' apparent reliance on color, the game is fully playable by anyone with color perception difficulties, since all switches and lights are labeled with their color, and light boundaries are clearly outlined.
+				In addition there are options for game brightness, character outline colors, and a color mode which makes greens and reds slightly more distinct.
+			</p>
+			<div id="about_images6">
+				<img class="contained_image" src="images/About_13_Color1.png" alt="A example image using the default color options"></img>
+				<img class="contained_image" src="images/About_14_Color2.png" alt="A example image using the same layout as neighboring image, but using a a color modification which makes greens and reds slightly more distinct."></img>
+			</div>
 
 			<div class="header_container"><a name="development"></a>
 				<img class="contained_image" src="images/lumin_dev.png" alt=""></img>
 				<h2 class="section_header" style="">Development</h2>
 				<img class="contained_image" src="images/shade_dev.png" alt=""></img>
 			</div>
-			<p>Lumins and Shades is being developed by a team of one. If you know me from the internet, you probably know me by TheOnlyOne or some variant thereon (see contact information below). If you know me from anywhere else, you probably call me Tom. I have a Masters in Computer Science, and I wrote my undergraduate thesis on procedural generation of a Sokoban variant. I have a strong musical background and a very artistic family. I have been interested in game design and creation for as long as I can remember. So of course I'm going to make a game.</p>
-			<p>I started development of Lumins and Shades around August 2016, having come up with the idea about a year earlier. You can see a history of the game's development on its <a href="https://twitter.com/LuminsAndShades">official Twitter account</a>. You should definitely check this out to see a ton more features and media for the game (especially videos/gifs.)</p>
-			<p>The ideas for this game didn't come out of nowhere. Some of the core mechanics, such as the selection and commanding of multiple characters and various switch types, are based on a lovely old PC game called Gruntz (Monolith Productions, 1999), which was one of my favorite games from my childhood and is easily still one of my favorites. I would strongly recommend playing this one for yourself, but the game is apparently very hard to come by nowadays, and modern systems have trouble running it. The puzzle design mentality is heavily influenced by more recent games such as The Witness (Thekla, Inc., 2016) and Stephen's Sausage Roll (Increpare Games, 2016), which are both games that tell the player absolutely nothing about how the puzzles work.</p>
-			<p>For the curious: Lumins and Shades is not created in any particular engine, but rather is written in C using the library SDL. The reason for this decision is the high portability of both the language and the library; I want the game to be able to reach as many platforms as is reasonable while causing myself as little pain as possible. I have, perhaps, written a bit more from scratch than was entirely necessary (font displaying, some special file reading/writing, and others), but I've fortunately found in most of these cases the extra power gained from having full control over these mechanisms ended up being beneficial.</p>
-			<div class="header_container"><a name="contact"></a>
+			<p>Lumins and Shades was developed by TheOnlyOne, who came up with the game concept, did the puzzle design, programming, character design, and writing, and made the font, sound effects, and music.</p>
+			<p>Jazz created the environment tiles, improved character design and animation, graphical UI elements, and the title logo.</p>
+			<p>
+				I started development of Lumins and Shades around August 2016, having come up with the idea about a year earlier.
+				<a href="https://twitter.com/LuminsAndShades/status/821144419252453376?cxt=HHwWgICyrfWfpeUWAAAA" target="_blank">Here</a> is a twitter thread detailing about half a year of the game's early development history.
+				The game's <a href="https://twitter.com/LuminsAndShades" target="_blank">official Twitter account</a> continues to give development updates until bit after the release of the demo in June 2017. (The demo is no longer available.)
+				After this, development of the game slowed down significantly as I became more busy and less motivated, but the main things done during the next few years were: the composition of the soundtrack, the incorporation of Jazz's greatly improved graphical assets, and the continual and repeated trimming and refinement of the puzzles.
+				The game will finally be released on <b>October 27, 2023</b>.
+			</p>
+			<p>
+				The ideas for this game didn't come out of nowhere.
+				Some of the core mechanics, such as the selection and commanding of multiple characters as well as the various types of light switches, are based on a lovely old PC game called Gruntz (Monolith Productions, 1999), which was one of my favorite games from my childhood and is easily still one of my favorites.
+				The puzzle design mentality is heavily influenced by more recent (at the time of inception) games such as The Witness (Thekla, Inc., 2016) and Stephen's Sausage Roll (Increpare Games, 2016).
+			</p>
+      <p>Since around the time of release, this is a hot topic: Lumins and Shades is not created in any particular engine, but rather is written in C using the <a href="https://www.libsdl.org/"target="_blank">SDL library</a> for graphics, audio, and controls. It uses <a href="https://lib.openmpt.org/libopenmpt/" target="_blank">libopenmpt</a> to play music.
+			<div class="header_container"><a name="miscellaneous"></a>
 				<img class="contained_image" src="images/lumin_contact.png" alt=""></img>
-				<h2 class="section_header" style="">Contact</h2>
+				<h2 class="section_header" style="">Miscellaneous</h2>
 				<img class="contained_image" src="images/shade_contact.png" alt=""></img>
 			</div>
-			<p>If you have any questions about the game, find something wrong with the site, or just want to know what my favorite Lumin is on a given day, feel free to contact me. Twitter and Discord are probably your best bet; I rarely read twitch messages, but I am certainly responsive to chat if I happen to be live.</p>
-			<ul>
-				<li>Twitter: <a href="https://twitter.com/Modest_ralts">https://twitter.com/Modest_ralts</a> or <a href="https://twitter.com/LuminsAndShades">https://twitter.com/LuminsAndShades</a></li>
-				<li>Discord ID: TheOnlyOne#9807</li>
-				<li>Twitch TV: <a href="https://www.twitch.tv/theonly0">https://www.twitch.tv/theonly0</a>
-				<li>E-mail: <a href="mailto:luminsandshades@gmail.com">luminsandshades@gmail.com</a>
+			<h4>For Fun:</h4>
+			<p>
+				In Lumins and Shades, the characters have numerous possible hair styles and colors, they can wear glasses (shades!), and have many other possible visual differences.
+				Each time you start a puzzle, the appearance of each character is randomized, and when there are multiple characters, they are chosen to be different so that you can more easily keep track of which is which.
+			</p>
+			<p>On the <a href="CharacterCreator.html">Character Creator Page</a>, you can play around with the different appearances, and also export them as images, to use as a profile picture, for example.</p>
+			<h4>Contact:</h4>
+			<p>If you have any questions about the game or find something wrong with the site feel free to contact me.</p>
+			<ul id="contact_list" style="display: none;">
+				<li>E-mail: <a class="contact_link" data-contact="[0,0,14,5,23,2,91,11,28,14,4,15,20,8,13,9,18,15,8,7,8,18,39,14,14,12,8,11,71,0,2,12]" href="mailto:luminsandshadescontact2@gmail.com">luminsandshadescontact2@gmail.com</a>
+				<li>Twitter: <a class="contact_link" data-contact="[5,21,19,25,16,87,78,72,29,20,4,21,19,12,17,67,2,8,4,76,33,20,10,0,13,30,32,9,13,48,5,0,3,12,16]"></a></li>
+				<li>Jazz (Artist): <a class="contact_link" data-contact="[0,0,14,5,23,2,91,10,28,17,9,24,11,5,35,10,12,6,0,15,67,2,8,4]"></a>
+					and <a class="contact_link" data-contact="[5,21,19,25,16,87,78,72,29,20,4,21,19,12,17,67,2,8,4,76,32,20,21,13,26,1,13]"></a>
 			</ul>
+			<button id="contact_button" type="button" onclick="showContacts();">Show Contact Info</button>
 		</div>
 		<div id="footer">
-			Copyright &#169; TheOnlyOne 2017-2018
+			Copyright &#169; TheOnlyOne 2017-2023
 		</div>
 	</body>
 </html>
